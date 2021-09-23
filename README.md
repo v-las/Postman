@@ -14,3 +14,16 @@
 - object: {can: 'contain', many: [of], every: {types}}
 - symbol: ?
 - array: [[[1d, 1d],[2d, 2d]],[[3d, 3d],[null, null]]]
+
+##### Unary operators
+let a = 5;
+- +'5' - converts to number
+- -a - negativate variable
+- ++a - prefix increment = 6, a = 6 
+- a-- - postfix decrement = 5, a = 4
+- 1 + '1' = '11'
+- 1 + 1 + '1' = '21'
+- '10' - * / ** 2 = number
+- 0 == '0' - true - str turns to num
+- 0 === '0' - false - str != num
+
