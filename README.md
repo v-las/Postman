@@ -1,9 +1,10 @@
-﻿# Postman Practice Repo
+﻿ # Postman Practice Repo
 
 ### Homeworks List
 № | discription
 :---:| ---
 01 | Workspace, Collection, Request, GET, POST, URL, Body-from-data
+02 | First tests
 
 ### JS Cheatsheet
 
@@ -32,7 +33,16 @@ let a = 5;
 - 0 === '0' - false - str != num
 - !a - not a
 
-##### Loops
+##### Conditional examples
+```sh
+// ternary operator - ?:
+// condition ? result1 : result2
+// condition if (result1 === true) else (result2 === false)
+let a = 1 + 1 + (5 > 6 ? 1 : 2);
+4
+a = a === 1 ? a : (a === 2 ? 100 : 200);
+200
+```
 ```sh
 let a = 13000;
 if (a >= 500000) {
@@ -84,3 +94,68 @@ switch (true) {
         break;
 }
 =20
+```
+
+##### Loop examples
+```sh
+voriaMoney = 0;
+
+names = ['oleg', 'misa', 'bogdan'];
+
+money = [10000, 2000, 5000];
+
+for(let counter = 0; counter < names.length; counter += 1) {
+
+     console.log(names[counter] + ' give away ' + money[counter]);
+
+     voriaMoney += money[counter];
+
+     money[counter] = 0;
+
+}
+oleg give away 10000
+
+misa give away 2000
+bogdan give away 5000
+
+taras give away 700
+voriaMoney = 17700
+```
+```sh
+voriaStuff = [];
+
+names = ['oleg', 'misa'];
+
+stuff = [['phone', 'laptop'], ['vine', 'chocolate', 'glass']];
+
+		// loop will iterrate stuff for included []
+for (let count_stuff = 0; count_stuff < names.length; count_stuff += 1) {
+		// than put this [] in items
+    const items = stuff[count_stuff];
+
+		// loop will iterrate items for included ''
+    for (let count_items = 0; count_items < items.length; count_items += 1) {
+		// console takes name by count_stuff and item by count_items
+        console.log(names[count_stuff] + ' give away ' + items[count_items]);
+
+		// voriaStuff filled with items
+        voriaStuff.push(items[count_items]);
+
+    }
+    stuff[count_stuff] = []
+
+}
+oleg give away phone
+
+oleg give away laptop
+
+misa give away vine
+
+misa give away chocolate
+
+misa give away glass
+
+voriaStuff
+(5) ['phone', 'laptop', 'vine', 'chocolate', 'glass']
+stuff(2) [Array(0), Array(0)]
+```
