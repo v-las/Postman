@@ -9,7 +9,7 @@
 ### JS Cheatsheet
 
 ##### False
-__ 0, '', null, undefined, Nan__
+__0, '', null, undefined, Nan__
 
 ##### Types
 - number: 3, 3.5, Infinity(-Infinity), NaN, BigInt (90071992547409910n)
@@ -93,7 +93,7 @@ switch (true) {
         console.log('und');
         break;
 }
-=20
+'=20'
 ```
 
 ##### Loop examples
