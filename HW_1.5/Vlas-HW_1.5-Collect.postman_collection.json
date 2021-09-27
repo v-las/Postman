@@ -151,7 +151,7 @@
 							"\r",
 							"let jsonData = pm.response.json();\r",
 							"let jsonReqest = params;\r",
-							"// console.log('jsonData', jsonData)\r",
+							"console.log('jsonReqest', jsonReqest)\r",
 							"\r",
 							"let name_response = jsonData.name;\r",
 							"let name_request = jsonReqest.name;\r",
@@ -227,10 +227,47 @@
 					"listen": "test",
 					"script": {
 						"exec": [
+							"let jsonReqest = pm.request.url.query.all()\r",
+							"console.log('jsonReqest', jsonReqest)\r",
+							"let jsonData = pm.response.json();\r",
 							"\r",
-							"console.log(jsonData.salary);\r",
-							"console.log(jsonReqest.salary);\r",
-							"console.log(jsonData.salary[0]);"
+							"let name_response = jsonData.name;\r",
+							"pm.test(\"Check name request\", function () {\r",
+							"    pm.expect(jsonReqest[0].value).to.eql(name_response);\r",
+							"});\r",
+							"\r",
+							"let age_response = jsonData.age\r",
+							"pm.test(\"Check age request\", function () {\r",
+							"    pm.expect(+jsonReqest[1].value).to.eql(age_response);\r",
+							"});\r",
+							"\r",
+							"console.log('salary response', jsonData.salary);\r",
+							"console.log('salary request', jsonReqest[2].value);\r",
+							"// console.log('salary [0]', jsonData.salary[0]);\r",
+							"// console.log('salary [1]', jsonData.salary[1]);\r",
+							"// console.log('salary [2]', jsonData.salary[2]);\r",
+							"\r",
+							"let salary_response = jsonData.salary\r",
+							"pm.test(\"Check salary [0] request\", function () {\r",
+							"    pm.expect(jsonData.salary[0]).to.eql(+jsonReqest[2].value);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check salary [1] request\", function () {\r",
+							"    pm.expect(+jsonData.salary[1]).to.eql(jsonReqest[2].value * 2);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check salary [2] request\", function () {\r",
+							"    pm.expect(+jsonData.salary[2]).to.eql(jsonReqest[2].value * 3);\r",
+							"});\r",
+							"\r",
+							"pm.collectionVariables.set(\"name\", jsonReqest[0].value);\r",
+							"pm.collectionVariables.set(\"age\", jsonReqest[1].value);\r",
+							"pm.collectionVariables.set(\"salary\", jsonReqest[2].value);\r",
+							"\r",
+							"for (let count = 0; count < jsonData.salary.length; count += 1) {\r",
+							"    console.log('salary count', jsonData.salary[count]);\r",
+							"}\r",
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -264,6 +301,92 @@
 		},
 		{
 			"name": "user_info_2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.get(\"variable_key\");\r",
+							"pm.collectionVariables.get(\"variable_key\");\r",
+							"pm.collectionVariables.get(\"variable_key\");\r",
+							"\r",
+							"let jsonData = pm.response.json();\r",
+							"let jsonReqest = request.data;\r",
+							"console.log('!', jsonReqest)\r",
+							"\r",
+							"pm.test(\"json have start_qa_salary\", function () {\r",
+							"    pm.expect(jsonData).to.have.property(\"start_qa_salary\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"json have start_qa_salary_after_6_monthsqa_salary\", function () {\r",
+							"    pm.expect(jsonData).to.have.property(\"qa_salary_after_6_months\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"json have qa_salary_after_12_months\", function () {\r",
+							"    pm.expect(jsonData).to.have.property(\"qa_salary_after_12_months\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"json have qa_salary_after_1.5_year\", function () {\r",
+							"    pm.expect(jsonData).to.have.property(\"qa_salary_after_1.5_year\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"json have qa_salary_after_3.5_years\", function () {\r",
+							"    pm.expect(jsonData).to.have.property(\"qa_salary_after_3.5_years\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"json have person\", function () {\r",
+							"    pm.expect(jsonData).to.have.property(\"person\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check start_qa_salary request\", function () {\r",
+							"    pm.expect(jsonData.start_qa_salary).to.eql(+jsonReqest.salary);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check qa_salary_after_6_months request\", function () {\r",
+							"    pm.expect(jsonData.qa_salary_after_6_months).to.eql(+jsonReqest.salary * 2);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check qa_salary_after_12_months request\", function () {\r",
+							"    pm.expect(jsonData.qa_salary_after_12_months).to.eql(+jsonReqest.salary * 2.7);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check qa_salary_after_3.5_years request\", function () {\r",
+							"    pm.expect(jsonData['qa_salary_after_3.5_years']).to.eql(+jsonReqest.salary * 3.8);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check qa_salary_after_1.5_year request\", function () {\r",
+							"    pm.expect(jsonData['qa_salary_after_1.5_year']).to.eql(+jsonReqest.salary * 3.3);\r",
+							"});\r",
+							"\r",
+							"let person = jsonData.person\r",
+							"console.log('person', person)\r",
+							"pm.test(\"Check u_name request\", function () {\r",
+							"    pm.expect(person.u_name[1]).to.eql(+jsonReqest.salary);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check u_age request\", function () {\r",
+							"    pm.expect(person.u_age).to.eql(+jsonReqest.age);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check u_salary_5_years request\", function () {\r",
+							"    pm.expect(person.u_salary_5_years).to.eql(+jsonReqest.salary * 4.2);\r",
+							"});\r",
+							"\r",
+							"for (let count = 0; count < person.length; count += 1) {\r",
+							"    console.log('person count', person[count]);\r",
+							"}\r",
+							"\r",
+							"pm.test(\"22. Person list\", function () {\r",
+							"  Object.keys(person).forEach(function(i)  {\r",
+							"  console.log(i, person[i]);\r",
+							"})});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -317,6 +440,20 @@
 					"});"
 				]
 			}
+		}
+	],
+	"variable": [
+		{
+			"key": "name",
+			"value": ""
+		},
+		{
+			"key": "age",
+			"value": ""
+		},
+		{
+			"key": "salary",
+			"value": ""
 		}
 	]
 }
