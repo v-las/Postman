@@ -24,11 +24,8 @@ let jsonData = pm.response.json();
 let cur_id_list = [];
 
 for (let count_list = 0; count_list < jsonData.length; count_list++) {
-    // const items = jsonData[count_list]
     cur_id_list.push(jsonData[count_list].Cur_ID)
 };
-// console.log(cur_id_list);
-// let currency_list_200 = [];
 
 for (let count = 0; count < cur_id_list.length; count++) {
     let post_info = {
@@ -46,24 +43,14 @@ for (let count = 0; count < cur_id_list.length; count++) {
         },
     };
     pm.sendRequest(post_info, (error, response) => {
-        // log_list = [count, cur_id_list[count]]
         if (response.code != 200) {
-            // pm.environment.set("Cur_ID", cur_id_list[count++]);
-            // console.log('error', log_list);
+            // console.log('error');
         } else {
             let jsonData = response.json();
-            // currency_list_200.push(jsonData);
-            // pm.environment.set("Cur_ID", cur_id_list[count++]);
-            // console.log('fine', log_list)
             console.log("Курс " + jsonData["Cur_Name"] + " - " + jsonData["Cur_OfficialRate"]);
         };
     });
-    // setTimeout(function() { console.log('sleep', count) }, 5000)
-    // if (currency_list_200[count] != undefined) {
-    //     console.log(currency_list_200[count]);
-    // }
 };
-// console.log(currency_list_200);
 
 ```
 ## Пример результата:
