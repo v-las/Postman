@@ -106,10 +106,15 @@ for(let counter = 0; counter < names.length; counter += 1) {
 }
 ```
 oleg give away 10000
+
 misa give away 2000
+
 bogdan give away 5000
+
 taras give away 700
+
 voriaMoney = 17700
+
 ```sh
 voriaStuff = [];
 names = ['oleg', 'misa'];
@@ -129,11 +134,17 @@ for (let count_stuff = 0; count_stuff < names.length; count_stuff += 1) {
 }
 ```
 oleg give away phone
+
 oleg give away laptop
+
 misa give away vine
+
 misa give away chocolate
+
 misa give away glass
+
 voriaStuff (5) ['phone', 'laptop', 'vine', 'chocolate', 'glass']
+
 stuff (2) [Array(0), Array(0)]
 ```sh
 do {
