@@ -1,5 +1,24 @@
 # HW2 Star Task Code
-Задание:
+## Задание:
+1. получить список валют
+2. итерировать список валют
+3. в каждой итерации отправлять запрос на сервер для получения курса каждой валюты
+4. если возвращается 500 код, переходим к следующей итреации
+5. если получаем 200 код, проверяем response json на наличие поля `Cur_OfficialRate`
+6. если поле есть, пишем в консоль инфу про фалюту в виде response
+```sh
+{
+    "Cur_Abbreviation": str
+    "Cur_ID": int,
+    "Cur_Name": str,
+    "Cur_OfficialRate": float,
+    "Cur_Scale": int,
+    "Date": str
+}
+```
+7. переходим к следующей итерации
+
+## Решение:
 ```sh
 let jsonData = pm.response.json();
 let cur_id_list = [];
@@ -47,7 +66,7 @@ for (let count = 0; count < cur_id_list.length; count++) {
 // console.log(currency_list_200);
 
 ```
-Result example:
+## Пример результата:
 ```sh
 22:48:08.895
 Курс Филиппинских песо - 4.9275
