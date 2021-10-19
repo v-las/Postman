@@ -1,4 +1,5 @@
-﻿# HW2 Star Task Code
+# HW2 Star Task Code
+Задание:
 ```sh
 let jsonData = pm.response.json();
 let cur_id_list = [];
@@ -11,7 +12,8 @@ for (let count_list = 0; count_list < jsonData.length; count_list++) {
 // let currency_list_200 = [];
 
 for (let count = 0; count < cur_id_list.length; count++) {
-    let post_info = {  "url": "http://162.55.220.72:5005/curr_byn",
+    let post_info = {
+        url: 'http://162.55.220.72:5005/curr_byn',
         method: 'POST',
         header: {
             'Content-Type': 'multipart/form-data',
@@ -21,11 +23,11 @@ for (let count = 0; count < cur_id_list.length; count++) {
             formdata: [
                 {key: "auth_token", value: pm.environment.get("token")},
                 {key: "curr_code", value: cur_id_list[count]}
-                ]
+            ]
         },
     };
     pm.sendRequest(post_info, (error, response) => {
-        log_list = [count, cur_id_list[count]]
+        // log_list = [count, cur_id_list[count]]
         if (response.code != 200) {
             // pm.environment.set("Cur_ID", cur_id_list[count++]);
             // console.log('error', log_list);
@@ -34,7 +36,7 @@ for (let count = 0; count < cur_id_list.length; count++) {
             // currency_list_200.push(jsonData);
             // pm.environment.set("Cur_ID", cur_id_list[count++]);
             // console.log('fine', log_list)
-            console.log("Êóðñ " + jsonData["Cur_Name"] + " - " + jsonData["Cur_OfficialRate"]);
+            console.log("Курс " + jsonData["Cur_Name"] + " - " + jsonData["Cur_OfficialRate"]);
         };
     });
     // setTimeout(function() { console.log('sleep', count) }, 5000)
