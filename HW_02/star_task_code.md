@@ -34,7 +34,7 @@ for (let count = 0; count < cur_id_list.length; count++) {
             // currency_list_200.push(jsonData);
             // pm.environment.set("Cur_ID", cur_id_list[count++]);
             // console.log('fine', log_list)
-            console.log("Êóðñ " + jsonData["Cur_Name"] + " - " + jsonData["Cur_OfficialRate"]);
+            console.log("ÃŠÃ³Ã°Ã± " + jsonData["Cur_Name"] + " - " + jsonData["Cur_OfficialRate"]);
         };
     });
     // setTimeout(function() { console.log('sleep', count) }, 5000)
@@ -47,9 +47,8 @@ for (let count = 0; count < cur_id_list.length; count++) {
 ```
 Result example:
 ```sh
-
 22:48:08.895
-Êóðñ Ôèëèïïèíñêèõ ïåñî - 4.9275
+ÐšÑƒÑ€Ñ Ð¤Ð¸Ð»Ð¸Ð¿Ð¿Ð¸Ð½ÑÐºÐ¸Ñ… Ð¿ÐµÑÐ¾ - 4.9275
  
 22:48:08.896
 POST http://162.55.220.72:5005/curr_byn
@@ -57,7 +56,7 @@ POST http://162.55.220.72:5005/curr_byn
 4.16 s
  
 22:48:08.897
-Êóðñ Èðàíñêèõ ðèàëîâ - 5.8262
+ÐšÑƒÑ€Ñ Ð˜Ñ€Ð°Ð½ÑÐºÐ¸Ñ… Ñ€Ð¸Ð°Ð»Ð¾Ð² - 5.8262
  
 22:48:08.898
 POST http://162.55.220.72:5005/curr_byn
@@ -65,7 +64,7 @@ POST http://162.55.220.72:5005/curr_byn
 4.04 s
  
 22:48:08.900
-Êóðñ Ñîìîíè - 2.2176
+ÐšÑƒÑ€Ñ Ð¡Ð¾Ð¼Ð¾Ð½Ð¸ - 2.2176
  
 22:48:08.901
 POST http://162.55.220.72:5005/curr_byn
@@ -73,7 +72,7 @@ POST http://162.55.220.72:5005/curr_byn
 4.18 s
  
 22:48:08.903
-Êóðñ Òåíãå - 5.7475
+ÐšÑƒÑ€Ñ Ð¢ÐµÐ½Ð³Ðµ - 5.7475
  
 22:48:08.904
 POST http://162.55.220.72:5005/curr_byn
@@ -81,7 +80,7 @@ POST http://162.55.220.72:5005/curr_byn
 4.18 s
  
 22:48:08.906
-Êóðñ Òóðåöêèõ ëèð - 2.6347
+ÐšÑƒÑ€Ñ Ð¢ÑƒÑ€ÐµÑ†ÐºÐ¸Ñ… Ð»Ð¸Ñ€ - 2.6347
  
 22:48:08.907
 POST http://162.55.220.72:5005/curr_byn
@@ -89,5 +88,5 @@ POST http://162.55.220.72:5005/curr_byn
 4.04 s
  
 22:48:08.908
-Êóðñ Øðè-ëàíêèéñêèõ ðóïèé - 1.2584
+ÐšÑƒÑ€Ñ Ð¨Ñ€Ð¸-Ð»Ð°Ð½ÐºÐ¸Ð¹ÑÐºÐ¸Ñ… Ñ€ÑƒÐ¿Ð¸Ð¹ - 1.2584
 ```
