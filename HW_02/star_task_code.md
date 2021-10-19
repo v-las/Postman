@@ -1,4 +1,4 @@
-# Star Task Code
+﻿# HW2 Star Task Code
 ```sh
 let jsonData = pm.response.json();
 let cur_id_list = [];
